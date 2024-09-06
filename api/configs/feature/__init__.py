@@ -97,17 +97,17 @@ class CodeExecutionSandboxConfig(BaseSettings):
 
     CODE_MAX_STRING_ARRAY_LENGTH: PositiveInt = Field(
         description="",
-        default=30,
+        default=80000,
     )
 
     CODE_MAX_OBJECT_ARRAY_LENGTH: PositiveInt = Field(
         description="",
-        default=30,
+        default=80000,
     )
 
     CODE_MAX_NUMBER_ARRAY_LENGTH: PositiveInt = Field(
         description="",
-        default=1000,
+        default=80000,
     )
 
 

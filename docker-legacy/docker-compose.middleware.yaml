@@ -80,6 +80,7 @@ services:
     ports:
       - "3128:3128"
       - "8194:8194"
+      - "3066:3066"
     volumes:
       # pls clearly modify the squid.conf file to fit your network environment.
       - ./volumes/ssrf_proxy/squid.conf:/etc/squid/squid.conf
