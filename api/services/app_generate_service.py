@@ -1,6 +1,7 @@
 from collections.abc import Generator
 from typing import Any, Union
 
+from core.app.apps.workflow_logging_callback import WorkflowLoggingCallback
 from openai._exceptions import RateLimitError
 
 from configs import dify_config
@@ -38,6 +39,12 @@ class AppGenerateService:
         max_active_request = AppGenerateService._get_max_active_requests(app_model)
         rate_limit = RateLimit(app_model.id, max_active_request)
         request_id = RateLimit.gen_request_key()
+
+        WorkflowLoggingCallback().print_text('************************************************')
+        WorkflowLoggingCallback().print_text(app_model.__dict__)
+
+        # 打印app_model里面所有的内容
+
         try:
             request_id = rate_limit.enter(request_id)
             if app_model.mode == AppMode.COMPLETION.value:

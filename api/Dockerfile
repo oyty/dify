@@ -67,6 +67,10 @@ ENV PATH="${VIRTUAL_ENV}/bin:${PATH}"
 # Download nltk data
 RUN python -c "import nltk; nltk.download('punkt'); nltk.download('averaged_perceptron_tagger')"
 
+# 复制 NLTK 数据到 Docker 镜像
+# COPY /home/descfly/nltk_data /root/nltk_data
+# ENV NLTK_DATA=/root/nltk_data
+
 # Copy source code
 COPY . /app/api/
 
